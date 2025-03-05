@@ -1,0 +1,16 @@
+flask
+flask-sqlalchemy
+pymysql
+pandas
+numpy
+scikit-learn
+python-dotenv
+flask-login
+werkzeug
+flask-cors
+bcrypt
+scrapy
+colorama
+Flask-JWT-Extended
+Twisted
+psutil

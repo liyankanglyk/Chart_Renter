@@ -2,13 +2,18 @@
 # 忽略目录
 docs/
 data/
-crawler/__pycache__/
-crawler/.scrapy/
+
+
+# 忽略git文件
+.gitignore
+.git
+
 
 # 忽略爬虫生成的原始数据文件
-# *.csv
-# *.json
-
+*.csv
+*.json
+*.xlsx
+*.xls
 
 
 # 忽略缓存和临时文件
