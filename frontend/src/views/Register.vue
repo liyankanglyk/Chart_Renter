@@ -1,5 +1,8 @@
 <template>
   <div class="register-page">
+    <!-- 顶部导航栏 -->
+    <NavBar :active-index="'/register'" />
+
     <div class="register-container">
       <el-card class="register-card">
         <template #header>
@@ -82,13 +85,15 @@ import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { User, Lock, Message } from '@element-plus/icons-vue'
 import { authApi } from '../api/auth'
+import NavBar from '../components/NavBar.vue'
 
 export default {
   name: 'Register',
   components: {
     User,
     Lock,
-    Message
+    Message,
+    NavBar
   },
   setup() {
     const router = useRouter()
@@ -167,9 +172,6 @@ export default {
 <style scoped lang="scss">
 .register-page {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #f5f7fa;
 }
 
@@ -177,6 +179,7 @@ export default {
   width: 100%;
   max-width: 400px;
   padding: 20px;
+  margin: 60px auto;
 }
 
 .register-card {

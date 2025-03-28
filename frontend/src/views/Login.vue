@@ -1,5 +1,8 @@
 <template>
   <div class="login-page">
+    <!-- 顶部导航栏 -->
+    <NavBar :active-index="'/login'" />
+
     <div class="login-container">
       <el-card class="login-card">
         <template #header>
@@ -61,12 +64,14 @@ import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
 import { authApi } from '../api/auth'
+import NavBar from '../components/NavBar.vue'
 
 export default {
   name: 'Login',
   components: {
     User,
-    Lock
+    Lock,
+    NavBar
   },
   setup() {
     const store = useStore()
@@ -128,9 +133,6 @@ export default {
 <style scoped lang="scss">
 .login-page {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #f5f7fa;
 }
 
@@ -138,6 +140,7 @@ export default {
   width: 100%;
   max-width: 400px;
   padding: 20px;
+  margin: 60px auto;
 }
 
 .login-card {

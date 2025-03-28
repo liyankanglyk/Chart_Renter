@@ -69,7 +69,109 @@ export const authApi = {
     } catch (error) {
       throw error.response ? error.response.data : { message: '网络错误' }
     }
-  }
+  },
+  analysis: async (index) => {
+    try {
+      const response = await apiClient.post('/auth/analysis', {
+        index
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  handleCurrentChange: async (index,page) => {
+    try {
+      const response = await apiClient.post('/auth/handleCurrentChange', {
+        index,
+        page
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+
+  RentalPredictionScatterPlot: async (index) => {
+    try {
+      const response = await apiClient.post('/auth/RentalPredictionScatterPlot', {
+        index,
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  restAnalysis: async (index,size,orientations) => {
+    try {
+      const response = await apiClient.post('/auth/RestAnalysis', {
+        index,
+        size,
+        orientations,
+      })
+      console.log(index,size,orientations)
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  restNumber: async () => {
+    try {
+      const response = await apiClient.post('/auth/restNumber', {
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  restNumber1: async () => {
+    try {
+      const response = await apiClient.post('/auth/restNumber1', {
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  averageHousePrice: async () => {
+    try {
+      const response = await apiClient.post('/auth/averageHousePrice', {
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  averageHousePrice1: async () => {
+    try {
+      const response = await apiClient.post('/auth/averageHousePrice1', {
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  prediction: async (index,size,orientations) => {
+    try {
+      const response = await apiClient.post('/auth/prediction', {
+        index,
+        size,
+        orientations,
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
+  map: async () => {
+    try {
+      const response = await apiClient.post('/auth/map', {
+      })
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data : { message: '网络错误' }
+    }
+  },
 }
 
 export default apiClient 

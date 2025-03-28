@@ -1,21 +1,7 @@
 <template>
   <div class="home">
-    <!-- 顶部导航栏 -->
-    <el-menu
-      :default-active="activeIndex"
-      class="nav-menu"
-      mode="horizontal"
-      router
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item index="/">首页</el-menu-item>
-      <el-menu-item index="/analysis">数据分析</el-menu-item>
-      <el-menu-item index="/prediction">租金预测</el-menu-item>
-      <div class="flex-grow"></div>
-      <el-menu-item v-if="!isAuthenticated" index="/login">登录</el-menu-item>
-      <el-menu-item v-if="isAuthenticated" @click="handleLogout">退出</el-menu-item>
-    </el-menu>
+    <!-- 使用导航栏组件 -->
+    <NavBar :active-index="activeIndex" @logout="handleLogout" />
 
     <!-- 主要内容区域 -->
     <div class="main-content">
@@ -80,9 +66,13 @@
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import NavBar from '../components/NavBar.vue'
 
 export default {
   name: 'Home',
+  components: {
+    NavBar
+  },
   setup() {
     const store = useStore()
     const router = useRouter()
@@ -117,10 +107,6 @@ export default {
 .home {
   min-height: 100vh;
   background-color: #f5f7fa;
-}
-
-.nav-menu {
-  padding: 0 20px;
 }
 
 .flex-grow {

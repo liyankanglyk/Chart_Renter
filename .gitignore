@@ -1,56 +1,59 @@
-# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
-# 忽略目录
-docs/
-data/
-crawler/__pycache__/
-crawler/.scrapy/
-
-# 忽略爬虫生成的原始数据文件
-# *.csv
-# *.json
-
-
-
-# 忽略缓存和临时文件
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-.nox/
-
-# 忽略环境文件
-venv/
-env/
-.env
-.venv
 .python-version
 
-# 忽略日志文件
-logs/
-*.log
+# Virtual environment
+venv/
+env/
+.venv/
+.env
 
-# 忽略前端构建文件
-frontend/node_modules/
-frontend/dist/
-frontend/.DS_Store
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-
-# 忽略Scrapy生成的文件
-.scrapy/
-
-# 忽略大型数据集和模型文件
-data/raw/
-models/trained/
-*.pkl
-
-# 忽略IDE配置文件
+# IDE
 .idea/
 .vscode/
 *.swp
 *.swo
 
+# Scrapy
+.scrapy/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.DS_Store
+
+# Data files
+*.csv
+*.json
+*.xlsx
+*.xls
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Testing
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Large files
+*.pkl
+
+# Project specific ignores
+data/raw/
+data/processed/
+data/districts/

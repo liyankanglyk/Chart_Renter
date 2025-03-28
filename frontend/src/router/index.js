@@ -54,7 +54,52 @@ const routes = [
       title: '租金预测',
       requiresAuth: true  // 需要登录才能访问
     }
-  }
+  },
+  {
+    path: '/RentalPredictionScatterPlot',
+    name: 'RentalPredictionScatterPlot',
+    component: () => import('../views/RentalPredictionScatterPlot.vue'),
+    meta: {
+      title: '区域租金预测散点图',
+      requiresAuth: true  // 需要登录才能访问
+    }
+  },
+  {
+    path: '/RestAnalysis',
+    name: 'RestAnalysis',
+    component: () => import('../views/RestAnalysis.vue'),
+    meta: {
+      title: '租金分析',
+      requiresAuth: true  // 需要登录才能访问
+    }
+  },
+  {
+    path: '/restNumber',
+    name: 'restNumber',
+    component: () => import('../views/restNumber.vue'),
+    meta: {
+      title: '房子数量',
+      requiresAuth: true  // 需要登录才能访问
+    }
+  },
+  {
+    path: '/averageHousePrice',
+    name: 'averageHousePrice',
+    component: () => import('../views/averageHousePrice.vue'),
+    meta: {
+      title: '房子金额平均值',
+      requiresAuth: true  // 需要登录才能访问
+    }
+  },
+  {
+    path: '/map',
+    name: 'map',
+    component: () => import('../views/map.vue'),
+    meta: {
+      title: '地图',
+      requiresAuth: true  // 需要登录才能访问
+    }
+  },
 ]
 
 const router = createRouter({
