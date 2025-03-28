@@ -4,7 +4,7 @@
     <NavBar :active-index="activeIndex" @logout="handleLogout" />
 
     <div class="main-content">
-      <h1>数据分析</h1>
+      <h1>数据展示</h1>
       <div style="width:200px">
         <el-select v-model="selectedCity" placeholder="请选择地区" @change="handleCityChange">
           <el-option
@@ -53,7 +53,7 @@
 <script>
 import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import {authApi} from "@/api/auth";
 import NavBar from '../components/NavBar.vue'
 
@@ -135,14 +135,15 @@ export default {
         console.error('请求失败:', error);
       }
     }
-    onMounted(async () => {
-      try {
-        // 设置请求的URL和数据
-        const response = await authApi.analysis(0);
-        console.log(response);
-        houseList.value = response.info
-      } catch (error) {
-        console.error('请求失败:', error);
+    const route = useRoute();
+    const query = computed(() => route.query);
+    onMounted(() => {
+      if (query.value.area) {
+        const selectedCityObj = cities.value.find(city => city.label === query.value.area);
+        if (selectedCityObj) {
+          selectedCity.value = selectedCityObj.value;
+          handleCityChange(selectedCityObj.value);
+        }
       }
     });
 
@@ -202,4 +203,4 @@ export default {
 
   }
 }
-</style> 
+</style>

@@ -104,6 +104,11 @@ def create_app():
             # 更新任务信息
             crawler_tasks[task_id]['process'] = process
             
+            # 立即更新一次进度信息
+            crawler_tasks[task_id]['count'] = 0
+            crawler_tasks[task_id]['progress'] = 0
+            crawler_tasks[task_id]['message'] = '爬虫已启动，正在采集数据...'
+            
             # 监控爬虫进程
             last_count = 0
             no_progress_time = 0
@@ -383,4 +388,4 @@ def handle_options():
 
 if __name__ == '__main__':
     print_startup_message()
-    app.run(debug=True) 
+    app.run(debug=True)

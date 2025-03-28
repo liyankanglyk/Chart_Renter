@@ -183,7 +183,7 @@ onMounted(() => {
                 <p><strong>房源数量:</strong> ${area.count} 套</p>
                 <p><strong>区域评估:</strong> ${getPriceLevel(area.count)}</p>
                 <p><strong>位置:</strong> ${area.coords[0].toFixed(2)}, ${area.coords[1].toFixed(2)}</p>
-                <p><a href="/analysis?area=${area.name}" target="_blank">查看区域房源详情</a></p>
+                186|                  <p><a href="/analysis?area=${area.name}" target="_blank">查看区域房源详情</a></p>
               </div>
             </div>
           `,

@@ -8,7 +8,7 @@
     text-color="#fff"
     active-text-color="#ffd04b">
     <el-menu-item index="/">首页</el-menu-item>
-    <el-menu-item index="/analysis">数据分析</el-menu-item>
+    <el-menu-item index="/analysis">数据展示</el-menu-item>
     <el-menu-item index="/prediction">租金预测</el-menu-item>
     <el-menu-item index="/RentalPredictionScatterPlot">区域租金预测散点图</el-menu-item>
     <el-menu-item index="/RestAnalysis">租金分析</el-menu-item>

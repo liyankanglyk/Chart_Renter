@@ -70,9 +70,6 @@ npm install
 ```sql
 # 1. 首先创建数据库
 CREATE DATABASE IF NOT EXISTS chart_renter DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-```python
 # 2. 修改config.py中的数据库配置
 MYSQL_HOST = 'localhost'
 MYSQL_USER = '你的用户名'
@@ -127,16 +124,6 @@ CREATE TABLE `rental_houses` (
   `source_url` VARCHAR(255) COMMENT '原始链接'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房源信息表';
 
--- 用户收藏表
-CREATE TABLE `user_favorites` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `user_id` INT NOT NULL COMMENT '用户ID',
-  `house_id` INT NOT NULL COMMENT '房源ID',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '收藏时间',
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`house_id`) REFERENCES `rental_houses` (`id`) ON DELETE CASCADE,
-  UNIQUE KEY `user_house` (`user_id`, `house_id`) COMMENT '确保一个用户不会重复收藏同一房源'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户收藏表';
 ```
 
 ## 🚀 运行项目
@@ -173,7 +160,7 @@ npm run serve
    - 📊 特征对比图
 4. 👤 用户功能
    - 🔐 用户注册登录
-   - ⭐ 房源收藏
+
 
 ## 📂 项目结构
 
@@ -197,7 +184,7 @@ Chart_Renter/
 │   │   ├── wuchang.csv           # 武昌区数据
 │   │   └── ...                   # 其他区域数据
 │   └── logs/                      # 日志文件
-│   ├── run预处理.py            	# 数据预处理脚本
+│   ├── run预处理.py             # 数据预处理脚本
 │   ├── statistical_analysis.py    # 统计分析脚本
 │   └── price_prediction.py        # 租金预测模型
 │
@@ -308,4 +295,26 @@ Chart_Renter/
 
 ## 📸 项目截图
 
-[在此处添加一些项目运行的截图] 
+![image-20250328143200804](README.assets/image-20250328143200804.png)
+
+![image-20250328143025427](README.assets/image-20250328143025427.png)
+
+![image-20250328143225503](README.assets/image-20250328143225503.png)
+
+![image-20250328144525582](README.assets/image-20250328144525582.png)
+
+![image-20250328144744122](README.assets/image-20250328144744122.png)
+
+![image-20250328144926065](README.assets/image-20250328144926065.png)
+
+![image-20250328145004389](README.assets/image-20250328145004389.png)
+
+![image-20250328145702878](README.assets/image-20250328145702878.png)
+
+![image-20250328145734433](README.assets/image-20250328145734433.png)
+
+![image-20250328145759255](README.assets/image-20250328145759255.png)
+
+![image-20250328154905524](README.assets/image-20250328154905524.png)
+
+![image-20250328154929836](README.assets/image-20250328154929836.png)

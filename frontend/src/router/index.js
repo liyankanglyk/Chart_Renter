@@ -115,7 +115,7 @@ router.beforeEach((to, from, next) => {
   // 检查该路由是否需要登录权限
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // 如果需要登录权限且未登录，则重定向到登录页
-    if (!store.state.isAuthenticated) {
+    if (!store.state.isAuthenticated && to.path!== '/analysis') {
       next({
         path: '/login',
         query: { redirect: to.fullPath }  // 保存原本要去的路径
@@ -124,13 +124,8 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
-    // 如果已登录且访问登录/注册页，重定向到首页
-    if (store.state.isAuthenticated && (to.path === '/login' || to.path === '/register')) {
-      next('/')
-    } else {
-      next()
-    }
+    next()
   }
 })
 
-export default router 
+export default router
